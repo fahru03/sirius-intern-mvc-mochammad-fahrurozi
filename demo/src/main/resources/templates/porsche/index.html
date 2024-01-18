@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${msg}">Document</title>
+</head>
+<body>
+    
+    <center>
+        <a th:href="@{/sedan}">Sedan</a>
+        <a th:href="@{/}">mobil</a>
+    <div class="container">
+        <a th:href="@{/porsche/add}">Tambah</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>id_mobil</th>
+                    <th>kecepetan</th>
+                    <th>transmisi</th>
+                    <th>action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each=" p : ${porsches} ">
+                    <td th:text="${p.id}"></td>
+                    <td th:text="${p.mobil.id}"></td>
+                    <td th:text="${p.kecepetan}"></td>
+                    <td th:text="${p.transmisi}"></td>
+                    <td>
+                        <a class="" th:href="@{'/porsche/edit/'+${p.id}}">edit</a>
+                        <a class="" th:href="@{'/porsche/delete/'+${p.id}}">delete</a>                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</center>
+</body>
+</html>

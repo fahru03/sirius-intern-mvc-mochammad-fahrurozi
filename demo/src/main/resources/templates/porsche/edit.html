@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${msg}">Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Porsche</h2>
+        <div>
+            <form th:object="${porsche}" method="post" th:action="@{/porsche/update}">                
+                <div class="form-group">
+                    <label>id_mobil</label>
+                    <select class="form-control" th:field="*{mobil.id}">
+                        <option th:each="m : ${listMobil}" th:value="${m.id}" th:text="${m.merek}"></option>
+                    </select>
+                </div>                
+                <div class="form-group">
+                    <label>kecepetan</label>
+                    <input type="text" class="form-control" th:field="*{kecepetan}"/>
+                </div>
+                <div class="form-group">
+                    <label>transmisi</label>
+                    <input type="text" class="form-control" th:field="*{transmisi}"/>
+                </div>
+                <br/>
+                <input type="hidden" th:field="*{id}" />
+                <p><button type="submit">save</button></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
